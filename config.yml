@@ -9,3 +9,9 @@ monitors:
     url: "http://example.com"
     timeout: 5
     check_every: 5
+
+  httpbin:
+    method: "GET"
+    url: "https://httpbin.org/get"
+    timeout: 5
+    check_every: 5

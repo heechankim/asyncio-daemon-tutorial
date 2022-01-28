@@ -27,9 +27,16 @@ class Container(containers.DeclarativeContainer):
         options=config.monitors.example,
     )
 
+    httpbin_monitor = providers.Factory(
+        monitors.HttpMonitor,
+        http_client=http_client,
+        options=config.monitors.httpbin,
+    )
+
     dispatcher = providers.Factory(
         dispatcher.Dispatcher,
         monitors=providers.List(
             example_monitor,
+            httpbin_monitor,
         ),
     )
